@@ -1,0 +1,62 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Lista de alumnos
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Tab 1</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-grid *ngFor="let alumno of alumnos">
+    <ion-row>
+      <ion-col>
+        <ion-card>
+          <ion-card-content>
+            <ion-grid>
+              <ion-row>
+                <ion-col>
+                  <ion-grid>
+                    <ion-row>
+                      <ion-col>
+                        Nombre:
+                      </ion-col>
+                      <ion-col>
+                        <strong>{{alumno.nombre}}</strong>
+                      </ion-col>
+                    </ion-row>
+                    <ion-row>
+                      <ion-col>
+                        Apellido:
+                      </ion-col>
+                      <ion-col>
+                        <strong>{{alumno.apellido}}</strong>
+                      </ion-col>
+                    </ion-row>
+                    <ion-row>
+                      <ion-col>
+                        Matricula:
+                      </ion-col>
+                      <ion-col>
+                        <strong>{{alumno.matricula}}</strong>
+                      </ion-col>
+                    </ion-row>
+                  </ion-grid>
+                </ion-col>
+                <ion-col class="Foto_alumno">
+                  <img src={{alumno.foto}} width="200px">
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>

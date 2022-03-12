@@ -1,13 +1,15 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-tab2',
-  templateUrl: 'tab2.page.html',
-  styleUrls: ['tab2.page.scss']
+  selector: 'app-alumnos',
+  templateUrl: './alumnos.component.html',
+  styleUrls: ['./alumnos.component.scss'],
 })
-export class Tab2Page {
+export class AlumnosComponent implements OnInit {
 
-  constructor() {}
+  constructor() { }
+
+  ngOnInit() {}
 
   alumnos = [
 
@@ -66,5 +68,5 @@ export class Tab2Page {
     }
 
   ];
-  
+
 }

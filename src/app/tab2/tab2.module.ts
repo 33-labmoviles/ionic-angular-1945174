@@ -6,7 +6,10 @@ import { FormsModule } from '@angular/forms';
 import { Tab2Page } from './tab2.page';
 import { ExploreContainerComponentModule } from '../explore-container/explore-container.module';
 
+import { AlumnosComponentModule } from '../alumnos/alumnos.component.module';
+import { AlumnoDetalleComponentModule } from '../alumno-detalle/alumno-detalle.component.module';
 import { Tab2PageRoutingModule } from './tab2-routing.module';
+
 
 @NgModule({
   imports: [
@@ -14,7 +17,9 @@ import { Tab2PageRoutingModule } from './tab2-routing.module';
     CommonModule,
     FormsModule,
     ExploreContainerComponentModule,
-    Tab2PageRoutingModule
+    Tab2PageRoutingModule,
+    AlumnosComponentModule,
+    AlumnoDetalleComponentModule
   ],
   declarations: [Tab2Page]
 })

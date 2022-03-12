@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Tab 2
+      Lista de Alumnos
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -9,9 +9,23 @@
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">Tab 2</ion-title>
+      <ion-title size="large">Tab 1</ion-title>
     </ion-toolbar>
   </ion-header>
 
-  <app-explore-container name="Tab 2 page"></app-explore-container>
+  <app-alumnos>
+    <ion-list>
+      <ion-grid>
+        <ion-img src="assets/icon/FCFM.jpg" class="imgFac"></ion-img>
+        <ion-label class="listaTab2"><strong>Lista de alumnos</strong></ion-label>
+      </ion-grid>
+
+
+      <ion-item *ngFor="let personas of alumnos" routerlink="/alumno-detalle">
+        <ion-label><ion-img src="{{personas.foto}}"></ion-img></ion-label>
+        <ion-label>{{personas.nombre}}</ion-label>
+      </ion-item>
+    </ion-list>
+  </app-alumnos>
+
 </ion-content>

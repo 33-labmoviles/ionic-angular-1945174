@@ -5,21 +5,18 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Tab2Page } from './tab2.page';
 import { ExploreContainerComponentModule } from '../explore-container/explore-container.module';
-
-import { AlumnosComponentModule } from '../alumnos/alumnos.component.module';
-import { AlumnoDetalleComponentModule } from '../alumno-detalle/alumno-detalle.component.module';
 import { Tab2PageRoutingModule } from './tab2-routing.module';
 
+import { AlumnosComponentModule } from '../alumnos/alumnos.component.module';
 
 @NgModule({
   imports: [
     IonicModule,
     CommonModule,
     FormsModule,
-    ExploreContainerComponentModule,
-    Tab2PageRoutingModule,
     AlumnosComponentModule,
-    AlumnoDetalleComponentModule
+    ExploreContainerComponentModule,
+    Tab2PageRoutingModule
   ],
   declarations: [Tab2Page]
 })

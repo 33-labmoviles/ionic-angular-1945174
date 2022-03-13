@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AlumnoDetalleComponentModule } from '../alumno-detalle/alumno-detalle.component.module';
+import { AlumnoDetalleComponent } from '../alumno-detalle/alumno-detalle.component';
 import { Tab2Page } from './tab2.page';
 
 const routes: Routes = [
@@ -11,7 +11,7 @@ const routes: Routes = [
   {
 
     path: 'alumno-detalle/:id',
-    component: AlumnoDetalleComponentModule,
+    component: AlumnoDetalleComponent,
 
   }
 ];

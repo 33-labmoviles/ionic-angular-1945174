@@ -1,6 +1,29 @@
-<ion-label>
-  <ion-img src="{{personas.foto}}"></ion-img>
-  <strong>{{alumnos.nombre}}</strong>
-  <strong>{{alumnos.apellido}}</strong>
-  <strong>{{alumnos.matricula}}</strong>
-</ion-label>
+<ion-grid>
+    <ion-row>
+        <ion-col size="12">
+            <ion-img src="{{alumnos[alumnoDetalle].foto}}"></ion-img>
+        </ion-col>
+    </ion-row>
+    <ion-row>
+        <ion-col>
+            Nombre:
+        </ion-col> 
+        <ion-col>
+            Apellido:
+        </ion-col>
+        <ion-col>
+            Matricula:
+        </ion-col>
+    </ion-row>
+    <ion-row>
+        <ion-col>
+            <strong>{{alumnos[alumnoDetalle].nombre}}</strong>
+        </ion-col>
+        <ion-col>
+            <strong>{{alumnos[alumnoDetalle].apellido}}</strong>
+        </ion-col>
+        <ion-col>
+            <strong>{{alumnos[alumnoDetalle].matricula}}</strong>
+        </ion-col>
+    </ion-row>
+</ion-grid>

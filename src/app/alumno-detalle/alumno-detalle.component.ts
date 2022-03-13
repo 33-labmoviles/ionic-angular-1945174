@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { AlumnosComponent } from '../alumnos/alumnos.component';
 
 @Component({
   selector: 'app-alumno-detalle',
@@ -11,7 +10,11 @@ export class AlumnoDetalleComponent implements OnInit {
 
   constructor(private ruta: ActivatedRoute) { }
 
-  ngOnInit() {}
+  ngOnInit() {
+
+    this.obtenerDetalleAlumno(this.matricula);
+    
+  }
 
   alumnos = [
 
@@ -70,23 +73,19 @@ export class AlumnoDetalleComponent implements OnInit {
     }
 
   ];
-
+  
+  alumnoDetalle: any = {};
   matricula: string = this.ruta.snapshot.params.id;
-  alumnoDetalle: any = {
-
-
-
-  }
 
   obtenerDetalleAlumno(matricula: string): any{
 
     console.log(matricula);
 
-    for(let i = 0; i< this.alumnos.length; i++){
+    for(let i = 0; i < this.alumnos.length; i++){
 
-      if(matricula == this.alumnos.matricula){
+      if(matricula == this.alumnos[i].matricula){
 
-
+        this.alumnoDetalle = i;
 
       }
 

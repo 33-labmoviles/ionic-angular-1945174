@@ -113,10 +113,10 @@ export class AlumnoDetalleComponent implements OnInit {
         }
       }, {
         text: 'Modificar',
-        icon: 'share',
+        icon: 'create',
         data: 10,
         handler: () => {
-          console.log('Share clicked');
+          console.log('create clicked');
         }
       }, {
         text: 'Me encanta',

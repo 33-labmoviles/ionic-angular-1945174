@@ -26,4 +26,12 @@
             <strong>{{alumnos[alumnoDetalle].matricula}}</strong>
         </ion-col>
     </ion-row>
+    <ion-row>
+        <ion-col>
+            <ion-button href="#">Volver</ion-button>
+        </ion-col>
+        <ion-col>
+            <ion-button (click)="presentActionSheet()">Mostrar opciones</ion-button>
+        </ion-col>
+    </ion-row>
 </ion-grid>

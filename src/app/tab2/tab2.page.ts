@@ -1,70 +1,31 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-tab2',
   templateUrl: 'tab2.page.html',
   styleUrls: ['tab2.page.scss']
 })
-export class Tab2Page {
+export class Tab2Page implements OnInit{
 
-  constructor() {}
+  constructor(private http: HttpClient) {}
 
-  alumnos = [
+  ngOnInit(): void {
 
-    {
-    
-      "nombre": "Julio",
-      "apellido": "Luevano",
-      "matricula": "1945174",
-      "foto": "/assets/icon/Teams1.jpg"
-    
-    },
+    this.getAlumnos();
 
-    {
-    
-      "nombre": "Manuel",
-      "apellido": "Rivera",
-      "matricula": "4715491",
-      "foto": "/assets/icon/Teams1.jpg"
+  }
 
-    },
+  alumnos: any = [];
 
-    {
-    
-      "nombre": "NOMBRE_1",
-      "apellido": "APELLIDO_1",
-      "matricula": "MATRICULA_1",
-      "foto": "/assets/icon/FCFM.jpg"
+  getAlumnos(): any {
 
-    },
+    this.http.get('https://ionic-angular-1945174-default-rtdb.firebaseio.com/alumnos.json').subscribe(res => {
+      this.alumnos = res;
 
-    {
-    
-      "nombre": "NOMBRE_2",
-      "apellido": "APELLIDO_2",
-      "matricula": "MATRICULA_2",
-      "foto": "/assets/icon/FCFM.jpg"
-    
-    },
+    })
 
-    {
-    
-      "nombre": "NOMBRE_3",
-      "apellido": "APELLIDO_3",
-      "matricula": "MATRICULA_3",
-      "foto": "/assets/icon/FCFM.jpg"
-    
-    },
-
-    {
-    
-      "nombre": "Eso Tilin",
-      "apellido": "Vamos Tilin",
-      "matricula": "WOW TILIN",
-      "foto": "/assets/icon/Tilin.jpg"
-    
-    }
-
-  ];
+  }
   
 }

@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Agregar alumnos
+      Lista de Alumnos
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -13,22 +13,6 @@
     </ion-toolbar>
   </ion-header>
 
-<ion-grid>
-  <ion-row>
-    <ion-col size="4">
-      <ion-input placeholder="Nombre" [(ngModel)]="nombre" class="texto_input"></ion-input>
-    </ion-col>
-    <ion-col size="4">
-      <ion-input placeholder="Apellido" [(ngModel)]="apellido" class="texto_input"></ion-input>
-    </ion-col>
-    <ion-col size="4">
-      <ion-input placeholder="Matricula" [(ngModel)]="matricula" class="texto_input"></ion-input>
-    </ion-col>
-    <ion-col>
-      <ion-button (click)="agregarAlumno()">Agregar Alumno</ion-button>
-    </ion-col>
-  </ion-row>
-</ion-grid>
 
   <ion-grid *ngFor="let alumno of alumnos">
     <ion-row>

@@ -25,7 +25,9 @@ export class Tab3Page{
     this.alumno = {
       "nombre": this.nombre,
       "apellido": this.apellido,
-      "matricula": this.matricula
+      "matricula": this.matricula,
+      "foto": "/assets/icon/Tilin.jpg"
+
     };
 
     this.putAlumnos(this.alumno);

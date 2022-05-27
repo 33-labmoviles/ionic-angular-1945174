@@ -26,11 +26,17 @@ export class Tab1Page implements OnChanges, OnInit{
   alumnos: any = [];
 
   getAlumnos(): any {
-
+    
     return this.http.get('https://ionic-angular-1945174-default-rtdb.firebaseio.com/alumnos.json').subscribe(res =>{
-      this.alumnos = res;
+    
+      for(let x = 0; x < Object.keys(res).length; x++){
+
+        this.alumnos.push(res[Object.keys(res)[x]]);    
+
+      }
+
     })
 
   }
-
+  
 }

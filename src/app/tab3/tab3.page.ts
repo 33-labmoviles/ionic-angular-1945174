@@ -4,7 +4,6 @@ import { NgForm } from '@angular/forms';
 
 import { HttpClient } from '@angular/common/http';
 
-
 @Component({
   selector: 'app-tab3',
   templateUrl: 'tab3.page.html',
@@ -18,15 +17,18 @@ export class Tab3Page{
   apellido: string = "";
   matricula: string = "";
   
+  editando = false;
+
   onSubmit(agregarAlumno: NgForm) {
 
     console.log("Form Exitoso");
 
+    
     this.alumno = {
       "nombre": this.nombre,
       "apellido": this.apellido,
       "matricula": this.matricula,
-      "foto": "/assets/icon/Tilin.jpg"
+      "foto": "/assets/icon/alumno.png"
 
     };
 

@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ActionSheetController } from '@ionic/angular';
 
+import { HttpClient } from '@angular/common/http';
+
 @Component({
   selector: 'app-alumno-detalle',
   templateUrl: './alumno-detalle.component.html',
@@ -9,90 +11,41 @@ import { ActionSheetController } from '@ionic/angular';
 })
 export class AlumnoDetalleComponent implements OnInit {
 
-  constructor(private ruta: ActivatedRoute, private actionSheetController: ActionSheetController) { }
+  constructor(private ruta: ActivatedRoute, private actionSheetController: ActionSheetController, private http: HttpClient) { }
 
   ngOnInit() {
 
-    this.obtenerDetalleAlumno(this.matricula);
+    this.obtenerAlumnos(this.matricula);
     
   }
 
-  alumnos = [
-
-    {
-    
-      "nombre": "Julio",
-      "apellido": "Luevano",
-      "matricula": "1945174",
-      "foto": "/assets/icon/Teams1.jpg"
-    
-    },
-
-    {
-    
-      "nombre": "Manuel",
-      "apellido": "Rivera",
-      "matricula": "4715491",
-      "foto": "/assets/icon/Teams1.jpg"
-
-    },
-
-    {
-    
-      "nombre": "NOMBRE_1",
-      "apellido": "APELLIDO_1",
-      "matricula": "MATRICULA_1",
-      "foto": "/assets/icon/FCFM.jpg"
-
-    },
-
-    {
-    
-      "nombre": "NOMBRE_2",
-      "apellido": "APELLIDO_2",
-      "matricula": "MATRICULA_2",
-      "foto": "/assets/icon/FCFM.jpg"
-    
-    },
-
-    {
-    
-      "nombre": "NOMBRE_3",
-      "apellido": "APELLIDO_3",
-      "matricula": "MATRICULA_3",
-      "foto": "/assets/icon/FCFM.jpg"
-    
-    },
-
-    {
-    
-      "nombre": "Eso Tilin",
-      "apellido": "Vamos Tilin",
-      "matricula": "WOW TILIN",
-      "foto": "/assets/icon/Tilin.jpg"
-    
-    }
-
-  ];
-  
+  alumnos: any = []
+  alumno: any = []
   alumnoDetalle: any = {};
   matricula: string = this.ruta.snapshot.params.id;
 
-  obtenerDetalleAlumno(matricula: string): any{
+  obtenerAlumnos(matricula: any): any{
 
-    console.log(matricula);
+    this.http.get('https://ionic-angular-1945174-default-rtdb.firebaseio.com/alumnos.json').subscribe(res => {
+      for(let x = 0; x < Object.keys(res).length; x++){
 
-    for(let i = 0; i < this.alumnos.length; i++){
-
-      if(matricula == this.alumnos[i].matricula){
-
-        this.alumnoDetalle = i;
+        this.alumnos.push(res[Object.keys(res)[x]]);    
 
       }
 
-    }
+      for(let i = 0; i < this.alumnos.length; i++){
 
-    return this.alumnoDetalle;
+        if(matricula == this.alumnos[i].matricula){
+  
+          this.alumnoDetalle = i;
+  
+        }
+  
+      }
+      
+      this.alumno = this.alumnos[this.alumnoDetalle]
+
+    })
 
   }
 

@@ -15,6 +15,7 @@ export class Tab1Page implements OnChanges, OnInit{
 
   ngOnChanges(): void {
     console.log("vista cambiada");
+    this.getAlumnos();
   };
 
   ngOnInit(): void {

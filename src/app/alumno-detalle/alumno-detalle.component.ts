@@ -23,13 +23,15 @@ export class AlumnoDetalleComponent implements OnInit {
   alumno: any = []
   alumnoDetalle: any = {};
   matricula: string = this.ruta.snapshot.params.id;
+  id: string;
+  foto: any = []
 
   obtenerAlumnos(matricula: any): any{
 
     this.http.get('https://ionic-angular-1945174-default-rtdb.firebaseio.com/alumnos.json').subscribe(res => {
       for(let x = 0; x < Object.keys(res).length; x++){
 
-        this.alumnos.push(res[Object.keys(res)[x]]);    
+        this.alumnos.push(res[Object.keys(res)[x]]);  
 
       }
 
@@ -38,15 +40,18 @@ export class AlumnoDetalleComponent implements OnInit {
         if(matricula == this.alumnos[i].matricula){
   
           this.alumnoDetalle = i;
+          this.id = Object.keys(res).reverse().reverse()[i];
+          this.foto = this.alumnos[i];
   
         }
   
       }
       
-      this.alumno = this.alumnos[this.alumnoDetalle]
+      this.alumno = this.alumnos[this.alumnoDetalle];
 
+      console.log(this.alumno)
     })
-
+    
   }
 
   async presentActionSheet() {
@@ -62,27 +67,33 @@ export class AlumnoDetalleComponent implements OnInit {
           type: 'delete'
         },
         handler: () => {
-          console.log('Delete clicked');
+          console.log('Eliminar');
+
+          this.http.delete('https://ionic-angular-1945174-default-rtdb.firebaseio.com/alumnos/' + this.id + '.json').subscribe(res => {
+            console.log(res)
+          })
+
         }
       }, {
         text: 'Modificar',
         icon: 'create',
         data: 10,
         handler: () => {
-          console.log('create clicked');
-        }
-      }, {
-        text: 'Me encanta',
-        icon: 'heart',
-        handler: () => {
-          console.log('Favorite clicked');
+          console.log('Modificar');
+
+          this.foto["foto"] = "/assets/icon/alumno.png";
+
+          this.http.put('https://ionic-angular-1945174-default-rtdb.firebaseio.com/alumnos/' + this.id + '.json', this.foto).subscribe(res => {
+            console.log(res)
+          })
+
         }
       }, {
         text: 'Cerrar',
         icon: 'close',
         role: 'cancel',
         handler: () => {
-          console.log('Cancel clicked');
+          console.log('Cerrar');
         }
       }]
     });

@@ -27,11 +27,32 @@
         </ion-col>
       </ion-row>
       <ion-row>
+        <ion-col *ngIf="!cambio">
+          <div>
+            <webcam [trigger]="triggerObservable" (imageCapture)="handleImage($event)"></webcam>
+          </div>
+        </ion-col>
+        <ion-col *ngIf="cambio">
+          <div *ngIf="webcamImage">
+            <img [src]="webcamImage.imageAsDataUrl"/>
+          </div>
+        </ion-col>
+      </ion-row>
+      <ion-row *ngIf="!cambio">
         <ion-col>
+          <ion-button (click)="triggerSnapshot();"><ion-icon name="camera-outline"></ion-icon></ion-button>
+        </ion-col>
+      </ion-row>
+      <ion-row *ngIf="cambio">
+        <ion-col>
+          <ion-button (click)="triggerSnapshot();">Tomar otra foto</ion-button>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col *ngIf="cambio">
           <ion-button type="submit" size="4">Agregar Alumno</ion-button>
         </ion-col>
       </ion-row>
     </ion-grid>
   </form>
-
 </ion-content>

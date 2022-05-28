@@ -25,7 +25,11 @@ export class Tab2Page implements OnInit{
       
       for(let x = 0; x < Object.keys(res).length; x++){
 
-        this.alumnos.push(res[Object.keys(res)[x]]);    
+        if(res[Object.keys(res)[x]] != null){
+
+          this.alumnos.push(res[Object.keys(res)[x]]);  
+  
+         }    
 
       }
 

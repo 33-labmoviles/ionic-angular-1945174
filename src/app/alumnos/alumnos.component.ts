@@ -26,9 +26,9 @@ export class AlumnosComponent implements OnInit {
       for(let x = 0; x < Object.keys(res).length; x++){
 
         this.alumnos.push(res[Object.keys(res)[x]]);    
-
+        
       }
-
+      console.log("s")
     })
 
   }
